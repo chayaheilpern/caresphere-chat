@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/jsonwebtoken@8.5.1"></script>
   <script type="text/javascript">
+    const encodedToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzYzNjhkOC1lMWUzLTQ0OGUtOTNmZS1lZDQzYjQyY2UwNDUiLCJpYXQiOjE3MDcyNDA2NzgsImV4cCI6MTcwNzI0MTE3OCwiYXR0cmlidXRlcyI6eyJuYW1lIjoiSmFuZSIsIm1lbWJlcklEIjoiMTIzNDU2Nzg5IiwiZW1haWwiOiJKYW5lQGV4YW1wbGUuY29tIiwiaXNQcmVtaXVtVXNlciI6dHJ1ZSwiYWdlIjo0NX19.g82hv5v_3U4mtljcZZVO-U9oTCdjY_ZhKg3cdmlIhFk";
+
     (function(w, d, x, id){
       s=d.createElement('script');
       s.src='https://dtn7rvxwwlhud.cloudfront.net/amazon-connect-chat-interface-client.js';
@@ -12,12 +15,10 @@
       s.id=id;
       d.getElementsByTagName('head')[0].appendChild(s);
       w[x] =  w[x] || function() { (w[x].ac = w[x].ac || []).push(arguments) };
-    })(window, document, 'amazon_connect', '036368d8-e1e3-448e-93fe-ed43b42ce045');
+    })(window, document, 'amazon_connect', encodedToken);
     amazon_connect('styles', { iconType: 'CHAT', openChat: { color: '#ffffff', backgroundColor: '#f79b45' }, closeChat: { color: '#ffffff', backgroundColor: '#f79b45'} });
     amazon_connect('snippetId', 'QVFJREFIakZhMVo2ZGZmSXpGSnpJS2lYakthYVBxMmJIU0ZPbnhET3AyalJDV1F3UWdFdjQ3Rk1QUGFiVStYWTJ3cWRzc21IQUFBQWJqQnNCZ2txaGtpRzl3MEJCd2FnWHpCZEFnRUFNRmdHQ1NxR1NJYjNEUUVIQVRBZUJnbGdoa2dCWlFNRUFTNHdFUVFNa3ZFVjJQNDdCeU9hMFdheEFnRVFnQ3VsZkJ2R1AxNWEzejFiSTAreE1wNW45ZGJlQXQyQWVhVlNMb0gzeDFNTHY5QXdJbG1PSkRJUXNkVEU6OlBJQktMTWRlM0hBMktpK3FpUkRIZ3lPZGhld1R4SHY2WFFVd3BKZk5QVXNsUHQ2a3NOTWtIczRZdUZVclRwVEhaOVlaZlZteTRNbUcrdzVtTzJQV28yeVd0UG9yYy8yVjQ4ZlFmOHdqUk9aSUZDN3BNWFBDZDE5dEpnVHVyM09yOGxKSFg5QnE4anVjazVDSHoxeW8xOUdycW1tNlVkTT0=');
     amazon_connect('supportedMessagingContentTypes', [ 'text/plain', 'text/markdown' ]);
-    // Adding custom data
-    amazon_connect('customData', { name: 'john doe', email: 'me@test.com' });
   </script>
   
 </head>

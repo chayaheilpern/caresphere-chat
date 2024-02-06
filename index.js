@@ -1,37 +1,23 @@
-import "amazon-connect-streams"
+// import jwt from "jsonwebtoken";
+const jwt = require("jsonwebtoken")
 
-// Initialize the Streams API
-connect.core.initCCP({
-  // CCP configuration options
-  ccpUrl: 'https://caresphere-communication.my.connect.aws/ccp-v2',
-  // Other configuration options...
+const CONNECT_SECRET = "dDMJiGAtLfyomp6YdtbGiNm4+siHm3lOyHPE1IJi7wo=";
 
-  // onSuccessfulInit: function (contactContext) {
-  //     // Access information about the ongoing contact
-  //     var contact = contactContext.getContact();
-  //     if (contact) {
-  //         // Example: Get existing customer attributes
-  //         var existingAttributes = contact.getAttributes();
-  //         console.log(existingAttributes)
+const payload = {
+    sub: "036368d8-e1e3-448e-93fe-ed43b42ce045",
+    iat: Math.floor(Date.now() / 1000),
+    exp: Math.floor(Date.now() / 1000) + 500,
+    attributes: {
+        name: "Jane",
+        memberID: "123456789",
+        email: "Jane@example.com",
+        isPremiumUser: true, // boolean value
+        age: 45,
+    },
+};
 
-  //         // Example: Update the 'name' attribute
-  //         existingAttributes.Customer.FirstName = 'Chaya';
+const header = { typ: "JWT", alg: "HS256" };
 
-  //         // Example: Update contact attributes
-  //         contact.updateContactAttributes(existingAttributes);
-  //     }
-  // },
+const encodedToken = jwt.sign(payload, CONNECT_SECRET, { algorithm: "HS256", header });
 
-  
-  // CCP initialization callback
-  // onSuccessfulInit: function (contactContext) {
-  //     // Set contact attributes after initialization
-  //     var contact = contactContext.getContact();
-  //     if (contact) {
-  //         contact.setAttributes({
-  //             first: 'chaya',
-  //             last: 'heilpern',
-  //         });
-  //     }
-  // },
-})
+console.log(encodedToken);
